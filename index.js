@@ -1,49 +1,30 @@
-// const animation = gsap.to('#one', {
-//   duration: 1,
-//   y: 200,
+// gsap.registerPlugin(ScrollTrigger);
+
+// gsap.from('#up', {
+//   x: 1000,
+//   opacity: 1,
+//   duration: 2,
+
+//   scrollTrigger: {
+//     trigger: '#up',
+//     start: 'top center',
+//     end: 'top 30%',
+//     // scrub: 1,
+//     markers: true,
+//     toggleActions: 'play reverse restart reverse', // play reverse restart reverse reset pause resume pauseResume reverseResume
+//     onLeave: function (e) {
+//       console.log('onLeave');
+//     },
+//   },
 // });
 
-// animation.pause();
-
-// one.addEventListener('click', function () {
-//   animation.reverse();
-//   console.log('one reversed');
-// });
-
-// two.addEventListener('click', function (e) {
-//   console.log('two');
-// });
-
-// three.addEventListener('click', function (e) {
-//   console.log('three');
-// });
-
-// four.addEventListener('click', function (e) {
-//   animation.play();
-//   e.stopPropagation();
-//   console.log('four play');
-// });
-
-// ! Event Delegation
-// container.addEventListener('click', function (e) {
-//   console.log(e.target.id);
-// });
-
-
-const animation = gsap.to('#one', {
-  duration: 1,
-  y: 200,
-});
-
-animation.pause();
-
-container.addEventListener('click', function (e) {
-  if (e.target.id === 'one') {
-    animation.reverse();
-    console.log('one reversed');
-  }
-  if (e.target.id === 'four') {
-    animation.play();
-    console.log('four play');
-  }
+gsap.to('h1', {
+  scale: 5,
+  scrollTrigger: {
+    trigger: 'section',
+    start: 'top center',
+    end: '-=500',
+    markers: true,
+    scrub: 1,
+  },
 });
