@@ -1,64 +1,49 @@
-// const tween = {
-//   duration: 2,
-//   y: '300px',
-//   ease: 'bounce.out',
-// };
-
-// gsap.to('#a', { ...tween, rotate: 360 });
-// gsap.to('#b', { ...tween, delay: 1.3 });
-// gsap.to('#b', { ...tween, delay: 2.6, y: '-300px' });
-// gsap.to('#c', { ...tween, delay: 3.9 });
-
-// const timeLine = gsap.timeline({
-//   delay : 1,
-//   defaults: { duration: 2, y: '300px', ease: 'bounce.out' },
+// const animation = gsap.to('#one', {
+//   duration: 1,
+//   y: 200,
 // });
-
-// // timeLine.to('#a', { ...tween, rotate: 360 });
-// // timeLine.to('#b', { ...tween });
-// // timeLine.to('#b', { ...tween, y: '-300px' });
-// // timeLine.to('#c', { ...tween });
-
-// timeLine.to('#a', { rotate: 360 }).to('#b', {}).to('#b', { y: '-300px' }).to('#c', {});
-
-// gsap.from('#a', {
-//   duration: 2,
-//   ease: 'bounce.out',
-//   y: '300px',
-//   rotate: 360,
-// });
-
-// const animation = gsap.from('#a', {
-//   y: '-300px',
-//   rotate: 360,
-//   duration: 3,
-// });
-
-// const animation = gsap.timeline({
-//   defaults: { duration: 2, y: '300px', ease: 'bounce.out' },
-// });
-
-// animation.from('#a', { rotate: 360 }).to('#a', {}).to('#a', { y: '-300px' }).to('#a', {});
 
 // animation.pause();
 
-// start.addEventListener('click', () => {
-//   animation.play();
-// });
-
-// resume.addEventListener('click', () => {
-//   animation.resume();
-// });
-
-// pause.addEventListener('click', () => {
-//   animation.pause();
-// });
-
-// reverse.addEventListener('click', () => {
+// one.addEventListener('click', function () {
 //   animation.reverse();
+//   console.log('one reversed');
 // });
 
-gsap.from('#a', {
-  y: '-300px',
-  rotate: 360,
+// two.addEventListener('click', function (e) {
+//   console.log('two');
+// });
+
+// three.addEventListener('click', function (e) {
+//   console.log('three');
+// });
+
+// four.addEventListener('click', function (e) {
+//   animation.play();
+//   e.stopPropagation();
+//   console.log('four play');
+// });
+
+// ! Event Delegation
+// container.addEventListener('click', function (e) {
+//   console.log(e.target.id);
+// });
+
+
+const animation = gsap.to('#one', {
+  duration: 1,
+  y: 200,
+});
+
+animation.pause();
+
+container.addEventListener('click', function (e) {
+  if (e.target.id === 'one') {
+    animation.reverse();
+    console.log('one reversed');
+  }
+  if (e.target.id === 'four') {
+    animation.play();
+    console.log('four play');
+  }
 });
